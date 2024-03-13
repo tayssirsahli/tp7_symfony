@@ -3,9 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Form\ArticleType;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
@@ -39,29 +40,14 @@ class IndexController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager)
     {
         $article = new Article();
-        $form = $this->createFormBuilder($article)
-            ->add('nom', TextType::class)
-            ->add('prix', TextType::class)
-            ->add(
-                'save',
-                SubmitType::class,
-                array(
-                    'label' => 'Créer'
-                )
-            )->getForm();
-
+        $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
-            // Ensure the request method is POST before persisting data
-            if ($request->isMethod('POST')) {
-                $article = $form->getData();
+            $article = $form->getData();
 
-                $entityManager->persist($article);
-                $entityManager->flush();
-
-                return $this->redirectToRoute('article_list');
-            }
+            $entityManager->persist($article);
+            $entityManager->flush();
+            return $this->redirectToRoute('home');
         }
         return $this->render('articles/new.html.twig', ['form' => $form->createView()]);
     }
@@ -83,21 +69,18 @@ class IndexController extends AbstractController
         $article = new Article();
         $article = $entityManager->getRepository(Article::class)->find($id);
 
-        $form = $this->createFormBuilder($article)
-            ->add('nom', TextType::class)
-            ->add('prix', TextType::class)
-            ->add('save', SubmitType::class, array(
-                'label' => 'Modifier'
-            ))->getForm();
+        $form = $this->createForm(ArticleType::class, $article);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
             $entityManager->flush();
 
-            return $this->redirectToRoute('article_list');
+            return $this->redirectToRoute('home');
         }
-        return $this->render('articles/edit.html.twig', ['form' => $form->createView()]);
+
+        return $this->render('articles/edit.html.twig', ['form' =>
+        $form->createView()]);
     }
 
     #[Route('/article/delete/{id}', name: 'delete_article')]
@@ -111,6 +94,6 @@ class IndexController extends AbstractController
 
         $response = new Response();
         $response->send();
-        return $this->redirectToRoute('article_list');
+        return $this->redirectToRoute('home');
     }
 }
