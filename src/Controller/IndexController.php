@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Category;
 use App\Form\ArticleType;
-use Doctrine\ORM\EntityManagerInterface;
 
+use App\Form\CategoryType;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -95,5 +97,21 @@ class IndexController extends AbstractController
         $response = new Response();
         $response->send();
         return $this->redirectToRoute('home');
+    }
+
+    #[Route('/category/newCat', name : 'new_category')]
+
+    public function newCategory(Request $request,EntityManagerInterface $entityManager)
+    {
+        $category = new Category();
+        $form = $this->createForm(CategoryType::class, $category);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $article = $form->getData();
+            $entityManager->persist($category);
+            $entityManager->flush();
+        }
+        return $this->render('articles/newCategory.html.twig', ['form' =>
+        $form->createView()]);
     }
 }
