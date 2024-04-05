@@ -64,6 +64,18 @@ class __TwigTemplate_1da9b35d3cf7a49da04194d2a02387a9 extends Template
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("new_category");
         echo "\" class=\"nav-link\">Ajouter catégorie</a>
 \t\t\t\t</li>
+\t\t\t\t<li class=\"nav-item\">
+\t\t\t\t\t<a href=\"";
+        // line 20
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_par_cat");
+        echo "\" class=\"nav-link\">Recherche par catégorie</a>
+\t\t\t\t</li>
+\t\t\t\t<li class=\"nav-item\">
+\t\t\t\t\t<a href=\"";
+        // line 23
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_par_prix");
+        echo "\" class=\"nav-link\">Recherche par prix</a>
+\t\t\t\t</li>
 
 \t\t\t</ul>
 \t\t</div>
@@ -99,7 +111,7 @@ class __TwigTemplate_1da9b35d3cf7a49da04194d2a02387a9 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  64 => 17,  58 => 14,  43 => 1,);
+        return array (  76 => 23,  70 => 20,  64 => 17,  58 => 14,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -121,6 +133,12 @@ class __TwigTemplate_1da9b35d3cf7a49da04194d2a02387a9 extends Template
 \t\t\t\t</li>
 \t\t\t\t<li class=\"nav-item\">
 \t\t\t\t\t<a href=\"{{ path('new_category')}}\" class=\"nav-link\">Ajouter catégorie</a>
+\t\t\t\t</li>
+\t\t\t\t<li class=\"nav-item\">
+\t\t\t\t\t<a href=\"{{ path('article_par_cat')}}\" class=\"nav-link\">Recherche par catégorie</a>
+\t\t\t\t</li>
+\t\t\t\t<li class=\"nav-item\">
+\t\t\t\t\t<a href=\"{{path('article_par_prix')}}\" class=\"nav-link\">Recherche par prix</a>
 \t\t\t\t</li>
 
 \t\t\t</ul>

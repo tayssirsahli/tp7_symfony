@@ -88,8 +88,30 @@ class __TwigTemplate_139cbeace22e304ad87bd0b66f378846 extends Template
 
         // line 6
         echo "\t";
-        if ((isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 6, $this->source); })())) {
-            // line 7
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 6, $this->source); })()), 'form_start');
+        echo "
+\t<div class=\"form-row align-items-end\">
+\t\t<div class=\"col\">
+\t\t\t";
+        // line 9
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 9, $this->source); })()), "nom", [], "any", false, false, false, 9), 'row');
+        echo "
+\t\t</div>
+\t\t<div class=\"col\">
+\t\t\t<div class=\"form-group\">
+\t\t\t\t<button type=\"submit\" class=\"btn btn-success\">Rechercher</button>
+\t\t\t</div>
+\t\t</div>
+\t</div>
+\t";
+        // line 17
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 17, $this->source); })()), 'form_end');
+        echo "
+
+\t";
+        // line 19
+        if ((isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 19, $this->source); })())) {
+            // line 20
             echo "\t\t<table id=\"articles\" class=\"table table-striped\">
 \t\t\t<thead>
 \t\t\t\t<tr>
@@ -101,37 +123,37 @@ class __TwigTemplate_139cbeace22e304ad87bd0b66f378846 extends Template
 \t\t\t</thead>
 \t\t\t<tbody>
 \t\t\t\t";
-            // line 17
+            // line 30
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 17, $this->source); })()));
+            $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 30, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
-                // line 18
+                // line 31
                 echo "\t\t\t\t\t<tr>
 \t\t\t\t\t\t<td>";
-                // line 19
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "nom", [], "any", false, false, false, 19), "html", null, true);
+                // line 32
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "nom", [], "any", false, false, false, 32), "html", null, true);
                 echo "</td>
 \t\t\t\t\t\t<td>";
-                // line 20
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "prix", [], "any", false, false, false, 20), "html", null, true);
+                // line 33
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "prix", [], "any", false, false, false, 33), "html", null, true);
                 echo "</td>
 \t\t\t\t\t\t<td>";
-                // line 21
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "category", [], "any", false, false, false, 21), "titre", [], "any", false, false, false, 21), "html", null, true);
+                // line 34
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "category", [], "any", false, false, false, 34), "titre", [], "any", false, false, false, 34), "html", null, true);
                 echo "</td>
 
 \t\t\t\t\t\t<td>
 \t\t\t\t\t\t\t<a href=\"/article/";
-                // line 24
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 24), "html", null, true);
+                // line 37
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 37), "html", null, true);
                 echo "\" class=\"btn btn-dark\">Détails</a>
 \t\t\t\t\t\t\t<a href=\"/article/edit/";
-                // line 25
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 25), "html", null, true);
+                // line 38
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 38), "html", null, true);
                 echo "\" class=\"btn btn-dark\">Modifier</a>
 \t\t\t\t\t\t\t<a href=\"/article/delete/";
-                // line 26
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 26), "html", null, true);
+                // line 39
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 39), "html", null, true);
                 echo "\" class=\"btn btn-danger\" onclick=\"return confirm('Etes vous sûr de supprimer cet article?');\">
 \t\t\t\t\t\t\t\tSupprimer
 \t\t\t\t\t\t\t</a>
@@ -145,7 +167,7 @@ class __TwigTemplate_139cbeace22e304ad87bd0b66f378846 extends Template
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 35
+            // line 48
             echo "</tbody></table>";
         } else {
             echo "<p>Aucun articles</p>";
@@ -179,7 +201,7 @@ class __TwigTemplate_139cbeace22e304ad87bd0b66f378846 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  149 => 35,  134 => 26,  130 => 25,  126 => 24,  120 => 21,  116 => 20,  112 => 19,  109 => 18,  105 => 17,  93 => 7,  90 => 6,  80 => 5,  69 => 3,  59 => 2,  36 => 1,);
+        return array (  171 => 48,  156 => 39,  152 => 38,  148 => 37,  142 => 34,  138 => 33,  134 => 32,  131 => 31,  127 => 30,  115 => 20,  113 => 19,  108 => 17,  97 => 9,  90 => 6,  80 => 5,  69 => 3,  59 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -189,6 +211,19 @@ class __TwigTemplate_139cbeace22e304ad87bd0b66f378846 extends Template
 \tListe des Articles
 {% endblock %}
 {% block body %}
+\t{{ form_start(form) }}
+\t<div class=\"form-row align-items-end\">
+\t\t<div class=\"col\">
+\t\t\t{{ form_row(form.nom) }}
+\t\t</div>
+\t\t<div class=\"col\">
+\t\t\t<div class=\"form-group\">
+\t\t\t\t<button type=\"submit\" class=\"btn btn-success\">Rechercher</button>
+\t\t\t</div>
+\t\t</div>
+\t</div>
+\t{{ form_end(form) }}
+
 \t{% if articles %}
 \t\t<table id=\"articles\" class=\"table table-striped\">
 \t\t\t<thead>

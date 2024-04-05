@@ -361,7 +361,16 @@
     <service id="App\Form\ArticleType" class="App\Form\ArticleType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\CategorySearchType" class="App\Form\CategorySearchType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\CategoryType" class="App\Form\CategoryType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\PriceSearchType" class="App\Form\PriceSearchType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\PropertySearchType" class="App\Form\PropertySearchType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Repository\ArticleRepository" class="App\Repository\ArticleRepository" autowire="true" autoconfigure="true">
@@ -399,7 +408,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.veZheE8"/>
+      <argument type="service" id=".service_locator.0A12bu1"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -1300,7 +1309,10 @@
       </argument>
       <argument type="collection">
         <argument>App\Form\ArticleType</argument>
+        <argument>App\Form\CategorySearchType</argument>
         <argument>App\Form\CategoryType</argument>
+        <argument>App\Form\PriceSearchType</argument>
+        <argument>App\Form\PropertySearchType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -3251,7 +3263,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.veZheE8"/>
+      <argument type="service" id=".service_locator.0A12bu1"/>
     </service>
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor">
       <tag name="kernel.reset" method="reset"/>
@@ -3733,7 +3745,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.KM5aQ.g"/>
+      <argument type="service" id=".service_locator..QHT3.d"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -6910,8 +6922,14 @@
     <service id=".abstract.instanceof.App\Controller\IndexController" class="App\Controller\IndexController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ArticleType" class="App\Form\ArticleType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ArticleType" class="App\Form\ArticleType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategorySearchType" class="App\Form\CategorySearchType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\CategorySearchType" class="App\Form\CategorySearchType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategoryType" class="App\Form\CategoryType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\CategoryType" class="App\Form\CategoryType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\PriceSearchType" class="App\Form\PriceSearchType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\PriceSearchType" class="App\Form\PriceSearchType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\PropertySearchType" class="App\Form\PropertySearchType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\PropertySearchType" class="App\Form\PropertySearchType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ArticleRepository" class="App\Repository\ArticleRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ArticleRepository" class="App\Repository\ArticleRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" abstract="true"/>
@@ -7303,9 +7321,11 @@
         <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
-    <service id=".service_locator.veZheE8" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.0A12bu1" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Controller\IndexController::articlesParCategorie" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\IndexController::articlesParPrix" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\IndexController::delete" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\IndexController::edit" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\IndexController::home" type="service_closure" id=".service_locator.CsMkqUa"/>
@@ -7317,6 +7337,8 @@
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
+        <argument key="App\Controller\IndexController:articlesParCategorie" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\IndexController:articlesParPrix" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\IndexController:delete" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\IndexController:edit" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\IndexController:home" type="service_closure" id=".service_locator.CsMkqUa"/>
@@ -7485,11 +7507,14 @@
       <argument type="service" id="argument_resolver.query_parameter_value_resolver"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.KM5aQ.g" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator..QHT3.d" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\ArticleType" type="service_closure" id="App\Form\ArticleType"/>
+        <argument key="App\Form\CategorySearchType" type="service_closure" id="App\Form\CategorySearchType"/>
         <argument key="App\Form\CategoryType" type="service_closure" id="App\Form\CategoryType"/>
+        <argument key="App\Form\PriceSearchType" type="service_closure" id="App\Form\PriceSearchType"/>
+        <argument key="App\Form\PropertySearchType" type="service_closure" id="App\Form\PropertySearchType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service_closure" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service_closure" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ColorType" type="service_closure" id="form.type.color"/>
@@ -9426,7 +9451,7 @@
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.bJ.4HC5" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.veZheE8"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.0A12bu1"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>

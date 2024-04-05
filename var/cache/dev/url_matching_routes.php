@@ -18,6 +18,8 @@ return [
         '/article/save' => [[['_route' => 'articleSave', '_controller' => 'App\\Controller\\IndexController::save'], null, null, null, false, false, null]],
         '/article/new' => [[['_route' => 'new_article', '_controller' => 'App\\Controller\\IndexController::new'], null, null, null, false, false, null]],
         '/category/newCat' => [[['_route' => 'new_category', '_controller' => 'App\\Controller\\IndexController::newCategory'], null, null, null, false, false, null]],
+        '/art_cat' => [[['_route' => 'article_par_cat', '_controller' => 'App\\Controller\\IndexController::articlesParCategorie'], null, null, null, true, false, null]],
+        '/art_prix' => [[['_route' => 'article_par_prix', '_controller' => 'App\\Controller\\IndexController::articlesParPrix'], null, null, null, true, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

@@ -24,6 +24,8 @@ return [
     'edit_article' => [['id'], ['_controller' => 'App\\Controller\\IndexController::edit'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/article/edit']], [], [], []],
     'delete_article' => [['id'], ['_controller' => 'App\\Controller\\IndexController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/article/delete']], [], [], []],
     'new_category' => [[], ['_controller' => 'App\\Controller\\IndexController::newCategory'], [], [['text', '/category/newCat']], [], [], []],
+    'article_par_cat' => [[], ['_controller' => 'App\\Controller\\IndexController::articlesParCategorie'], [], [['text', '/art_cat/']], [], [], []],
+    'article_par_prix' => [[], ['_controller' => 'App\\Controller\\IndexController::articlesParPrix'], [], [['text', '/art_prix/']], [], [], []],
     'App\Controller\IndexController::home' => [[], ['_controller' => 'App\\Controller\\IndexController::home'], [], [['text', '/']], [], [], []],
     'App\Controller\IndexController::save' => [[], ['_controller' => 'App\\Controller\\IndexController::save'], [], [['text', '/article/save']], [], [], []],
     'App\Controller\IndexController::new' => [[], ['_controller' => 'App\\Controller\\IndexController::new'], [], [['text', '/article/new']], [], [], []],
@@ -31,4 +33,6 @@ return [
     'App\Controller\IndexController::edit' => [['id'], ['_controller' => 'App\\Controller\\IndexController::edit'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/article/edit']], [], [], []],
     'App\Controller\IndexController::delete' => [['id'], ['_controller' => 'App\\Controller\\IndexController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/article/delete']], [], [], []],
     'App\Controller\IndexController::newCategory' => [[], ['_controller' => 'App\\Controller\\IndexController::newCategory'], [], [['text', '/category/newCat']], [], [], []],
+    'App\Controller\IndexController::articlesParCategorie' => [[], ['_controller' => 'App\\Controller\\IndexController::articlesParCategorie'], [], [['text', '/art_cat/']], [], [], []],
+    'App\Controller\IndexController::articlesParPrix' => [[], ['_controller' => 'App\\Controller\\IndexController::articlesParPrix'], [], [['text', '/art_prix/']], [], [], []],
 ];
